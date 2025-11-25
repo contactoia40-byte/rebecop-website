@@ -4,19 +4,16 @@
   "dir": "ltr",
   "display": "standalone",
   "name": "REBECOP",
-  "short_name": "Rebecop",
-  "id": "com.rebecop.app",
   "orientation": "any",
   "scope": "/",
+  "short_name": "Rebecop",
   "start_url": "/",
   "theme_color": "#000000",
+  "id": "com.rebecop.app",
   "lang": "es-ES",
   "categories": [
     "business",
     "finance",
     "productivity"
-  ],
-  "display_override": [
-    "window-controls-overlay"
   ]
 }
