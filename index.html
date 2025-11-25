@@ -137,5 +137,14 @@
         <a href="#legal">Política de privacidad</a>
     </footer>
 
+    <!-- REGISTRO DEL SERVICE WORKER (OBLIGATORIO PARA PWABUILDER) -->
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("serviceworker.js")
+            .then(() => console.log("Service Worker registrado"))
+            .catch(err => console.log("Error al registrar SW:", err));
+        }
+    </script>
+
 </body>
 </html>
