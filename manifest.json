@@ -5,9 +5,9 @@
   "display": "standalone",
   "name": "Rebecop",
   "orientation": "any",
-  "scope": "/",
+  "scope": "/rebecop-website/",
   "short_name": "Rebecop",
-  "start_url": "/",
+  "start_url": "/rebecop-website/",
   "theme_color": "#000000",
   "id": "com.rebecop.app",
   "lang": "es",
@@ -15,6 +15,12 @@
     {
       "src": "icon-512.png",
       "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     }
