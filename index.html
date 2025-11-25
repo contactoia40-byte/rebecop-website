@@ -137,10 +137,10 @@
         <a href="#legal">Política de privacidad</a>
     </footer>
 
-    <!-- REGISTRO DEL SERVICE WORKER (OBLIGATORIO PARA PWABUILDER) -->
+    <!-- REGISTRO DEL SERVICE WORKER (CORREGIDO PARA GITHUB PAGES) -->
     <script>
         if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("serviceworker.js")
+            navigator.serviceWorker.register("/rebecop-website/serviceworker.js")
             .then(() => console.log("Service Worker registrado"))
             .catch(err => console.log("Error al registrar SW:", err));
         }
