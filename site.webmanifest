@@ -1,0 +1,19 @@
+{
+  "background_color": "#000000",
+  "description": "REBECOP es tu copiloto inteligente para gestionar facturas, contabilidad, documentos y análisis con inteligencia artificial.",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "REBECOP",
+  "short_name": "Rebecop",
+  "id": "com.rebecop.app",
+  "orientation": "any",
+  "scope": "/",
+  "start_url": "/",
+  "theme_color": "#000000",
+  "lang": "es-ES",
+  "categories": [
+    "business",
+    "finance",
+    "productivity"
+  ]
+}
