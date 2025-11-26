@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>REBECOP – Copiloto IA para PYMEs</title>
 
-    <!-- Conectar manifiesto PWA (CORREGIDO) -->
-    <link rel="manifest" href="/rebecop-website/manifest.json">
+    <!-- Conectar manifiesto PWA (CORREGIDO PARA VERCEL) -->
+    <link rel="manifest" href="/manifest.json">
 
     <!-- Estilos externos -->
     <link rel="stylesheet" href="styles.css" />
@@ -55,7 +55,7 @@
 
             <div class="card">
                 <h3>🤖 Automatizaciones IA</h3>
-                <p>Activa recordatorios, análisis automáticos, previsiones y más.</p>
+                <p>Actula recordatorios, análisis automáticos, previsiones y más.</p>
             </div>
 
             <div class="card">
@@ -137,10 +137,10 @@
         <a href="#legal">Política de privacidad</a>
     </footer>
 
-    <!-- REGISTRO DEL SERVICE WORKER (CORREGIDO PARA GITHUB PAGES) -->
+    <!-- REGISTRO DEL SERVICE WORKER (CORREGIDO PARA VERCEL) -->
     <script>
         if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("/rebecop-website/serviceworker.js")
+            navigator.serviceWorker.register("/serviceworker.js")
             .then(() => console.log("Service Worker registrado"))
             .catch(err => console.log("Error al registrar SW:", err));
         }
