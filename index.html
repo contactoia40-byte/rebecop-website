@@ -5,14 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>REBECOP – Copiloto IA para PYMEs</title>
 
-    <!-- Manifiesto PWA -->
-    <link rel="manifest" href="https://rebecop-website.vercel.app/manifest.json">
-
-    <!-- Estilos externos -->
-    <link rel="stylesheet" href="https://rebecop-website.vercel.app/styles.css" />
-
     <!-- SEO -->
     <meta name="description" content="REBECOP es tu copiloto inteligente para gestionar facturas, contabilidad, documentos y análisis con inteligencia artificial.">
+
+    <!-- Estilos externos (tu CSS) -->
+    <link rel="stylesheet" href="https://rebecop-website.vercel.app/styles.css" />
 </head>
 
 <body>
@@ -44,11 +41,11 @@
             <div class="card"><h3>🤖 Automatizaciones IA</h3><p>Activa recordatorios, análisis automáticos, previsiones y más.</p></div>
             <div class="card"><h3>🧾 Documentos empresariales</h3><p>Centraliza contratos, tickets, presupuestos y documentos legales.</p></div>
             <div class="card"><h3>🧑‍🤝‍🧑 Equipos & Multiempresa</h3><p>Gestiona varias empresas y equipos desde la misma cuenta.</p></div>
-            <div class="card"><h3>📱 PWA Instalación</h3><p>Instala REBECOP en móvil o PC como una app nativa.</p></div>
+            <div class="card"><h3>📱 Instalación como App</h3><p>Uso sencillo, moderno y compatible con cualquier dispositivo.</p></div>
         </div>
     </section>
 
-    <!-- PRECIOS (NUEVO, ARREGLADO Y CLICABLE) -->
+    <!-- PRECIOS -->
     <section id="precios" class="section pricing">
         <h2>Planes y precios</h2>
 
@@ -102,19 +99,10 @@
         <p>© 2025 REBECOP — Tu copiloto inteligente para PYMEs</p>
     </footer>
 
-    <!-- SCRIPT: hacer los planes clicables -->
+    <!-- SCRIPT: planes redirigen a la APP real -->
     <script>
         function seleccionarPlan(plan) {
-            window.location.href = "/signup?plan=" + plan;
-        }
-    </script>
-
-    <!-- SERVICE WORKER -->
-    <script>
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("https://rebecop-website.vercel.app/serviceworker.js")
-            .then(() => console.log("Service Worker registrado"))
-            .catch(err => console.log("Error al registrar SW:", err));
+            window.location.href = "https://rebecop-copiloto-inteligente-para-ab62b6b6.base44.app/signup?plan=" + plan;
         }
     </script>
 
