@@ -1,25 +1,35 @@
-/* ========== BASE ========= */
+/* ============================
+   BASE GLOBAL
+   ============================ */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #f4f6fc;
     color: #1e293b;
-    scroll-behavior: smooth; /* PWA scrolling */
+    scroll-behavior: smooth;
+
+    /* Mejoras visuales */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 * {
-    box-sizing: border-box; /* evita bugs en PWA/Windows Store */
+    box-sizing: border-box;
 }
 
-/* ========== HEADER ========= */
+/* ============================
+   HEADER
+   ============================ */
 header {
     background: #1e40af;
     color: white;
     padding: 20px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;   /* Mejor UX en app instalada */
+
+    position: sticky;
     top: 0;
     z-index: 999;
 }
@@ -36,14 +46,16 @@ nav a {
     margin-left: 20px;
     text-decoration: none;
     font-weight: bold;
-    cursor: pointer; /* Necesario para PWA */
+    cursor: pointer;
 }
 
 nav a:hover {
     text-decoration: underline;
 }
 
-/* ========== HERO ========== */
+/* ============================
+   HERO
+   ============================ */
 .hero {
     text-align: center;
     padding: 100px 20px;
@@ -60,10 +72,12 @@ nav a:hover {
     text-decoration: none;
     display: inline-block;
     margin-top: 15px;
-    cursor: pointer; /* Fix for PWA installed UI */
+    cursor: pointer;
 }
 
-/* ========== SECTIONS ========= */
+/* ============================
+   SECCIONES GENERALES
+   ============================ */
 .section {
     padding: 60px 20px;
 }
@@ -73,27 +87,34 @@ h2 {
     margin-bottom: 30px;
 }
 
-/* ========== GRID GENERAL ========= */
+/* ============================
+   GRID GENERAL
+   ============================ */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
 }
 
-/* ========== FUNCIONES CARDS ========= */
+/* ============================
+   CARDS DE FUNCIONES
+   ============================ */
 .card {
     background: white;
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-    transition: transform .15s ease;
+    transition: transform .15s ease, box-shadow .15s ease;
 }
 
 .card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(0,0,0,0.15);
 }
 
-/* ========== PRICING ========= */
+/* ============================
+   PRICING
+   ============================ */
 .pricing-grid {
     display: flex;
     justify-content: center;
@@ -120,7 +141,9 @@ h2 {
     font-weight: bold;
 }
 
-/* ========== FOOTER ========== */
+/* ============================
+   FOOTER
+   ============================ */
 footer {
     text-align: center;
     padding: 25px;
@@ -136,4 +159,44 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/* ============================
+   MODO OSCURO AUTOMÁTICO
+   ============================ */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #0f172a;
+        color: white;
+    }
+
+    header, footer {
+        background: #0f172a;
+    }
+
+    .card {
+        background: #1e293b;
+        color: white;
+        box-shadow: 0 3px 12px rgba(255,255,255,0.05);
+    }
+
+    .price-card {
+        background: #1e293b;
+        color: white;
+        box-shadow: 0 3px 12px rgba(255,255,255,0.05);
+    }
+
+    .price-card.featured {
+        border-color: #3b82f6;
+    }
+
+    .hero {
+        background: #1e40af;
+        color: white;
+    }
+
+    .btn {
+        background: #3b82f6;
+        color: white;
+    }
 }
