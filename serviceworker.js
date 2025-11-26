@@ -3,12 +3,12 @@ const CACHE_NAME = "rebecop-cache-v1";
 
 // Archivos que queremos cachear
 const URLS_TO_CACHE = [
-    "/rebecop-website/",
-    "/rebecop-website/index.html",
-    "/rebecop-website/styles.css",
-    "/rebecop-website/manifest.json",
-    "/rebecop-website/icon-192.png",
-    "/rebecop-website/icon-512.png"
+    "/",
+    "/index.html",
+    "/styles.css",
+    "/manifest.json",
+    "/icon-192.png",
+    "/icon-512.png"
 ];
 
 // Instalación del Service Worker
@@ -43,12 +43,9 @@ self.addEventListener("fetch", event => {
     event.respondWith(
         caches.match(event.request)
             .then(response => {
-                // Si lo tenemos en caché, lo devolvemos
                 if (response) {
                     return response;
                 }
-
-                // Si no, lo pedimos a la red
                 return fetch(event.request);
             })
     );
