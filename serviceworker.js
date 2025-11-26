@@ -1,22 +1,28 @@
-const CACHE_NAME = "rebecop-cache-v1";
+const CACHE_NAME = "rebecop-cache-v2";
+
+// Rutas ABSOLUTAS para que funcionen en modo PWA instalada y en Windows Store
+const BASE = "https://rebecop-website.vercel.app";
 
 const URLS_TO_CACHE = [
-  "/",
-  "/index.html",
-  "/styles.css",
-  "/manifest.json",
-  "/icon-192.png",
-  "/icon-512.png"
+  `${BASE}/`,
+  `${BASE}/index.html`,
+  `${BASE}/styles.css`,
+  `${BASE}/manifest.json`,
+  `${BASE}/icon-192.png`,
+  `${BASE}/icon-512.png`
 ];
 
+// INSTALACIÓN
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(URLS_TO_CACHE);
     })
   );
+  self.skipWaiting();
 });
 
+// ACTIVACIÓN
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
@@ -29,12 +35,24 @@ self.addEventListener("activate", (event) => {
       )
     )
   );
+  self.clients.claim();
 });
 
+// FETCH — "network first" para evitar cuelgues
 self.addEventListener("fetch", (event) => {
+  const request = event.request;
+
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    })
+    fetch(request)
+      .then((response) => {
+        // Guardar en cache la respuesta online
+        const clone = response.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+        return response;
+      })
+      .catch(() => {
+        // Si la red falla → tirar de cache
+        return caches.match(request);
+      })
   );
 });
