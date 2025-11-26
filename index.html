@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>REBECOP – Copiloto IA para PYMEs</title>
 
-    <!-- Manifiesto PWA (ruta absoluta para funcionar en app instalada) -->
+    <!-- Manifiesto PWA -->
     <link rel="manifest" href="https://rebecop-website.vercel.app/manifest.json">
 
     <!-- Estilos externos -->
@@ -13,9 +13,6 @@
 
     <!-- SEO -->
     <meta name="description" content="REBECOP es tu copiloto inteligente para gestionar facturas, contabilidad, documentos y análisis con inteligencia artificial.">
-    <meta property="og:title" content="REBECOP – Copiloto IA para PYMEs">
-    <meta property="og:description" content="Gestiona facturas, contabilidad, IA y documentos desde un único panel.">
-    <meta property="og:type" content="website">
 </head>
 
 <body>
@@ -24,7 +21,6 @@
     <header>
         <h1 class="logo">REBECOP</h1>
         <nav>
-            <!-- Enlaces funcionando dentro de la PWA -->
             <a onclick="document.getElementById('funciones').scrollIntoView({behavior:'smooth'})">Funciones</a>
             <a onclick="document.getElementById('precios').scrollIntoView({behavior:'smooth'})">Precios</a>
             <a onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Contacto</a>
@@ -43,48 +39,23 @@
         <h2>Funciones principales</h2>
 
         <div class="grid">
-
-            <div class="card">
-                <h3>📄 Gestión de facturas</h3>
-                <p>Sube facturas, clasifícalas y deja que la IA extraiga toda la información por ti.</p>
-            </div>
-
-            <div class="card">
-                <h3>📊 Contabilidad inteligente</h3>
-                <p>Controla ingresos, gastos, balances y flujo de caja con IA integrada.</p>
-            </div>
-
-            <div class="card">
-                <h3>🤖 Automatizaciones IA</h3>
-                <p>Activa recordatorios, análisis automáticos, previsiones y más.</p>
-            </div>
-
-            <div class="card">
-                <h3>🧾 Documentos empresariales</h3>
-                <p>Centraliza contratos, tickets, presupuestos y documentos legales.</p>
-            </div>
-
-            <div class="card">
-                <h3>🧑‍🤝‍🧑 Equipos & Multiempresa</h3>
-                <p>Gestiona varias empresas y equipos desde la misma cuenta.</p>
-            </div>
-
-            <div class="card">
-                <h3>📱 PWA Instalación</h3>
-                <p>Instala REBECOP en móvil o PC como una app nativa.</p>
-            </div>
-
+            <div class="card"><h3>📄 Gestión de facturas</h3><p>Sube facturas, clasifícalas y deja que la IA extraiga toda la información por ti.</p></div>
+            <div class="card"><h3>📊 Contabilidad inteligente</h3><p>Controla ingresos, gastos, balances y flujo de caja con IA integrada.</p></div>
+            <div class="card"><h3>🤖 Automatizaciones IA</h3><p>Activa recordatorios, análisis automáticos, previsiones y más.</p></div>
+            <div class="card"><h3>🧾 Documentos empresariales</h3><p>Centraliza contratos, tickets, presupuestos y documentos legales.</p></div>
+            <div class="card"><h3>🧑‍🤝‍🧑 Equipos & Multiempresa</h3><p>Gestiona varias empresas y equipos desde la misma cuenta.</p></div>
+            <div class="card"><h3>📱 PWA Instalación</h3><p>Instala REBECOP en móvil o PC como una app nativa.</p></div>
         </div>
     </section>
 
-    <!-- PRECIOS -->
+    <!-- PRECIOS (NUEVO, ARREGLADO Y CLICABLE) -->
     <section id="precios" class="section pricing">
         <h2>Planes y precios</h2>
 
         <div class="pricing-grid">
 
             <!-- FREE -->
-            <div class="price-card">
+            <div class="price-card selectable" onclick="seleccionarPlan('free')">
                 <h3>Free</h3>
                 <p class="price">0 € / mes</p>
                 <ul>
@@ -92,10 +63,11 @@
                     <li>Facturación básica</li>
                     <li>15 documentos/mes</li>
                 </ul>
+                <div class="choose-btn">Elegir Free</div>
             </div>
 
-            <!-- PREMIUM (Pro) -->
-            <div class="price-card featured">
+            <!-- PREMIUM -->
+            <div class="price-card featured selectable" onclick="seleccionarPlan('premium')">
                 <h3>Premium</h3>
                 <p class="price">24,99 € / mes</p>
                 <ul>
@@ -105,6 +77,7 @@
                     <li>Automatizaciones avanzadas</li>
                     <li>Exportaciones profesionales</li>
                 </ul>
+                <div class="choose-btn">Elegir Premium</div>
             </div>
 
         </div>
@@ -127,10 +100,16 @@
     <!-- FOOTER -->
     <footer>
         <p>© 2025 REBECOP — Tu copiloto inteligente para PYMEs</p>
-        <a href="#legal">Política de privacidad</a>
     </footer>
 
-    <!-- REGISTRO DEL SERVICE WORKER (ruta absoluta para funcionar como app instalada) -->
+    <!-- SCRIPT: hacer los planes clicables -->
+    <script>
+        function seleccionarPlan(plan) {
+            window.location.href = "/signup?plan=" + plan;
+        }
+    </script>
+
+    <!-- SERVICE WORKER -->
     <script>
         if ("serviceWorker" in navigator) {
             navigator.serviceWorker.register("https://rebecop-website.vercel.app/serviceworker.js")
