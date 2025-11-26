@@ -1,10 +1,17 @@
+/* ========== BASE ========= */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #f4f6fc;
     color: #1e293b;
+    scroll-behavior: smooth; /* PWA scrolling */
 }
 
+* {
+    box-sizing: border-box; /* evita bugs en PWA/Windows Store */
+}
+
+/* ========== HEADER ========= */
 header {
     background: #1e40af;
     color: white;
@@ -12,6 +19,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;   /* Mejor UX en app instalada */
+    top: 0;
+    z-index: 999;
 }
 
 .logo {
@@ -20,17 +30,20 @@ header {
     margin: 0;
 }
 
+/* NAV */
 nav a {
     color: white;
     margin-left: 20px;
     text-decoration: none;
     font-weight: bold;
+    cursor: pointer; /* Necesario para PWA */
 }
 
 nav a:hover {
     text-decoration: underline;
 }
 
+/* ========== HERO ========== */
 .hero {
     text-align: center;
     padding: 100px 20px;
@@ -47,8 +60,10 @@ nav a:hover {
     text-decoration: none;
     display: inline-block;
     margin-top: 15px;
+    cursor: pointer; /* Fix for PWA installed UI */
 }
 
+/* ========== SECTIONS ========= */
 .section {
     padding: 60px 20px;
 }
@@ -58,19 +73,27 @@ h2 {
     margin-bottom: 30px;
 }
 
+/* ========== GRID GENERAL ========= */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
 }
 
+/* ========== FUNCIONES CARDS ========= */
 .card {
     background: white;
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    transition: transform .15s ease;
 }
 
+.card:hover {
+    transform: translateY(-4px);
+}
+
+/* ========== PRICING ========= */
 .pricing-grid {
     display: flex;
     justify-content: center;
@@ -97,6 +120,7 @@ h2 {
     font-weight: bold;
 }
 
+/* ========== FOOTER ========== */
 footer {
     text-align: center;
     padding: 25px;
@@ -107,4 +131,9 @@ footer {
 
 footer a {
     color: #c7d7ff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
